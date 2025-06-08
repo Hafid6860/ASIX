@@ -12,8 +12,8 @@ Route::get('/kirim-pesan', [MessageController::class, 'create'])->name('message.
 Route::post('/kirim-pesan', [MessageController::class, 'store'])->name('message.store');
 
 // Auth routes
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/log-smexa212', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/log-smexa212', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Protected routes (hanya untuk user yang sudah login)

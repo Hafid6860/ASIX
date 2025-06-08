@@ -5,12 +5,11 @@
 @section('content')
 <div class="space-y-6">
     <!-- Header -->
-    <div class="bg-white shadow rounded-lg p-6">
+    <div class="bg-white shadow-lg rounded-lg border-t-4 border-gradient-to-r from-red-500 to-amber-500 p-6">
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold text-gray-900">Dashboard {{ $user->bidang }}</h1>
+                <h1 class="text-2xl font-bold text-gray-900">Dashboard <span class="text-red-600">{{ $user->bidang }}</span></h1>
                 <p class="text-gray-600">Selamat datang, {{ $user->name }}</p>
-                <p class="text-gray-600">Penjelasan: Untuk menghubungi siswa lebih lanjut bisa lewat pesan ke alamat Gmail nya</p>
             </div>
             <div class="text-right">
                 <p class="text-sm text-gray-500">{{ now()->format('d F Y') }}</p>
@@ -20,11 +19,11 @@
 
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="bg-white overflow-hidden shadow-lg rounded-lg border-l-4 border-red-500">
             <div class="p-5">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <div class="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
+                        <div class="w-8 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-md flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-6m-10 0H4"></path>
                             </svg>
@@ -40,11 +39,11 @@
             </div>
         </div>
 
-        <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="bg-white overflow-hidden shadow-lg rounded-lg border-l-4 border-amber-500">
             <div class="p-5">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <div class="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
+                        <div class="w-8 h-8 bg-gradient-to-r from-amber-500 to-amber-400 rounded-md flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -60,11 +59,11 @@
             </div>
         </div>
 
-        <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="bg-white overflow-hidden shadow-lg rounded-lg border-l-4 border-green-500">
             <div class="p-5">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <div class="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
+                        <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-green-400 rounded-md flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
@@ -80,11 +79,11 @@
             </div>
         </div>
 
-        <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="bg-white overflow-hidden shadow-lg rounded-lg border-l-4 border-purple-500">
             <div class="p-5">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <div class="w-8 h-8 bg-purple-500 rounded-md flex items-center justify-center">
+                        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-400 rounded-md flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
                             </svg>
@@ -102,9 +101,9 @@
     </div>
 
     <!-- Messages Table -->
-    <div class="bg-white shadow rounded-lg">
-        <div class="px-6 py-4 border-b border-gray-200">
-            <h2 class="text-lg font-medium text-gray-900">Pesan Terbaru</h2>
+    <div class="bg-white shadow-lg rounded-lg border-t-4 border-gradient-to-r from-red-500 to-amber-500">
+        <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-red-600 to-amber-500">
+            <h2 class="text-lg font-medium text-white">Pesan Terbaru</h2>
         </div>
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
@@ -120,7 +119,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($messages as $message)
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-red-50 transition-colors">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div>
                                     <div class="text-sm font-medium text-gray-900">
@@ -140,7 +139,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 @if($message->status === 'pending')
-                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">
                                         Menunggu
                                     </span>
                                 @elseif($message->status === 'read')
@@ -158,7 +157,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <a href="{{ route('dashboard.show', $message) }}"
-                                   class="text-blue-600 hover:text-blue-900">Lihat</a>
+                                   class="text-red-600 hover:text-amber-500 transition-colors">Lihat</a>
                             </td>
                         </tr>
                     @empty

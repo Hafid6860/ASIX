@@ -13,7 +13,58 @@
     'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* Custom styles */
+
+/* Custom styles with red and gold theme */
 .backdrop-blur-md {
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(5px);
+}
+
+/* Custom red and gold color classes */
+.bg-primary {
+    background-color: #dc2626; /* red-600 */
+}
+
+.bg-primary-dark {
+    background-color: #b91c1c; /* red-700 */
+}
+
+.bg-secondary {
+    background-color: #f59e0b; /* amber-500 (gold) */
+}
+
+.bg-secondary-dark {
+    background-color: #d97706; /* amber-600 */
+}
+
+.text-primary {
+    color: #dc2626;
+}
+
+.text-secondary {
+    color: #f59e0b;
+}
+
+.border-primary {
+    border-color: #dc2626;
+}
+
+.border-secondary {
+    border-color: #f59e0b;
+}
+
+/* Hover effects */
+.hover\:bg-primary:hover {
+    background-color: #dc2626;
+}
+
+.hover\:bg-primary-dark:hover {
+    background-color: #b91c1c;
+}
+
+.hover\:text-primary:hover {
+    color: #dc2626;
+}
+
+.hover\:text-secondary:hover {
+    color: #f59e0b;
 }

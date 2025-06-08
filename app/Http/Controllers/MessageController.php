@@ -54,6 +54,6 @@ class MessageController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('message.create')->with('success', 'Pesan berhasil dikirim!');
+        return redirect()->route('home')->with('success', 'Pesan berhasil dikirim!');
     }
 }
